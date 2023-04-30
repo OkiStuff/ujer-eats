@@ -1,0 +1,3 @@
+C:/Users/coolg/repos/ujer_eats/cmake-build-debug/CMakeFiles/main.dir
+C:/Users/coolg/repos/ujer_eats/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/coolg/repos/ujer_eats/cmake-build-debug/CMakeFiles/rebuild_cache.dir
