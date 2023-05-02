@@ -4,6 +4,8 @@ project(ujer_eats)
 set(MUZZLE_ROOT "../muzzle_legacy")
 set(MUZZLE_LIB_FOLDER ${MUZZLE_ROOT}/../Muzzle/deps)
 
+set(raudio_source_dir ./include/external/raudio/src)
+
 INCLUDE_DIRECTORIES(${MUZZLE_ROOT}/include)
 LINK_DIRECTORIES(${MUZZLE_LIB_FOLDER}/glfw/lib)
 set(mz_source_dir ${MUZZLE_ROOT}/src)
@@ -27,9 +29,16 @@ set(mz_source
         ${mz_source_dir}/Time.c
         )
 
-set(source main.c include/application.c include/application.h include/loop.c include/input.c include/input.h include/player.c include/player.h)
+set(raudio_source
+        ${raudio_source_dir}/raudio.c
+        )
 
-add_executable(main ${source} ${mz_source})
+add_compile_definitions(RAUDIO_STANDALONE)
+add_compile_definitions(SUPPORT_FILEFORMAT_MP3)
+
+set(source main.c include/application.c include/application.h include/loop.c include/input.c include/input.h include/game_state.c include/game_state.h include/collision.h include/customers.c)
+
+add_executable(main ${source} ${mz_source} ${raudio_source})
 
 message(STATUS "Checking OS")
 
